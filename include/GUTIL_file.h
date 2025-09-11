@@ -29,8 +29,8 @@ public:
 	~File();
 	File(const File& other);
 	File& operator=(const File& other);
-	File(File&& other) = delete;
-	File& operator=(File&& other) = delete;
+	File(File&& other) noexcept;
+	File& operator=(File&& other) noexcept;
 
 	static std::string get_exe_dir();
 

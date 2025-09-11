@@ -30,6 +30,15 @@ GUTIL::File& GUTIL::File::operator=(const File& other) {
 	}
 	return *this;
 }
+GUTIL::File::File(File&& other) noexcept : name(std::move(other.name)), root(std::move(other.root)), path(std::move(other.path)) {}
+GUTIL::File& GUTIL::File::operator=(File&& other) noexcept {
+	if (this != &other) {
+		name = std::move(other.name);
+		root = std::move(other.root);
+		path = std::move(other.path);
+	}
+	return *this;
+}
 
 std::string GUTIL::File::get_exe_dir() {
 	const std::string error_message = "GUTIL_file.cc failed to get an absolute path for the program's binary directory.";

@@ -33,6 +33,14 @@ GUTIL::Time& GUTIL::Time::operator=(const Time& other) {
 	}
 	return *this;
 }
+GUTIL::Time::Time(Time&& other) noexcept : time_point(std::move(other.time_point)), timestamp(std::move(other.timestamp)) {}
+GUTIL::Time& GUTIL::Time::operator=(Time&& other) noexcept {
+	if (this != &other) {
+		time_point = std::move(other.time_point);
+		timestamp = std::move(other.timestamp);
+	}
+	return *this;
+}
 
 double GUTIL::Time::get_duration(const Time& start_time, const Time& end_time) {
 	std::chrono::duration<double> difference = end_time.time_point - start_time.time_point;

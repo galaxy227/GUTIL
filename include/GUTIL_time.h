@@ -15,8 +15,8 @@ public:
 	~Time();
 	Time(const Time& other);
 	Time& operator=(const Time& other);
-	Time(Time&& other) = delete;
-	Time& operator=(Time&& other) = delete;
+	Time(Time&& other) noexcept;
+	Time& operator=(Time&& other) noexcept;
 
 	static double get_duration(const Time& start_time, const Time& end_time);
 
