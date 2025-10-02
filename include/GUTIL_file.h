@@ -41,6 +41,7 @@ public:
 	std::string get_name() const;
 	std::string get_root() const;
 	std::string get_path() const;
+	std::string get_extension() const;
 private:
 	std::string name;
 	std::string root;
