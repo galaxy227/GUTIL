@@ -97,10 +97,10 @@ std::string GUTIL::File::get_path() const {
 std::string GUTIL::File::get_extension() const {
 	if (name.empty()) return "";
 	int index = 0;
-	for (int i = name.size() - 1; i >= 0; i--) {
+	for (int i = static_cast<int>(name.size()) - 1; i >= 0; i--) {
 		if (name[i] == '.') index = i;
 	}
-	if (index != name.size() - 1) index++;
+	if (index != static_cast<int>(name.size()) - 1) index++;
 	return name.substr(index);
 }
 
